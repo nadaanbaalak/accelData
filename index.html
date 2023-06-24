@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Audio Visualization</title>
-</head>
-<body>
-    <h1>Audio Visualization</h1>
-    <input type="file" id="audioFile" accept="audio/*">
+  </head>
+  <body>
+    <h1 class="page-title">Audio Visualization</h1>
+    <div id="drop-area">
+      <div>Drag and drop an audio file</div>
+      <label class="upload-file-button">
+        Browse
+        <input
+          type="file"
+          id="audioFile"
+          accept="audio/*"
+          style="display: none"
+        />
+      </label>
+    </div>
     <div id="waveform"></div>
 
     <script src="/index.js"></script>
-</body>
+  </body>
 </html>
