@@ -1,11 +1,16 @@
-var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+import { audio } from "./audio.js";
+import { isAudioFile } from "./helpers.js";
 
-var dropArea = document.getElementById("drop-area");
+const dropArea = document.getElementById("drop-area");
 
 dropArea?.addEventListener("dragover", handleDragOver);
 dropArea?.addEventListener("drop", handleFileSelectViaDrag);
 dropArea.addEventListener("dragenter", handleDragEnter);
 dropArea.addEventListener("dragleave", handleDragLeave);
+
+const audioInput = document.getElementById("audioFile");
+
+audioInput.addEventListener("change", handleFileSelect);
 
 //prevent default behaviour of playing audio on drop
 window.addEventListener(
@@ -26,12 +31,12 @@ window.addEventListener(
 
 function handleDragEnter(event) {
   event.preventDefault();
-  dropArea.classList.add("dragover");
+  dropArea?.classList.add("dragover");
 }
 
 function handleDragLeave(event) {
   event.preventDefault();
-  dropArea.classList.remove("dragover");
+  dropArea?.classList.remove("dragover");
 }
 
 function handleDragOver(event) {
@@ -39,30 +44,19 @@ function handleDragOver(event) {
   event.dataTransfer.dropEffect = "copy";
 }
 
+// event handler for when audio file is selected via drag and drop
 function handleFileSelectViaDrag(event) {
   event.preventDefault();
   dropArea.classList.remove("dragover");
-
-  var file = event.dataTransfer.files[0];
-  console.log(file);
-  loadFile(file);
+  const file = event.dataTransfer.files[0]; // getting the dragged and dropped audio file
+  if (isAudioFile(file)) {
+    audio.loadFile(file);
+  }
 }
 
-function loadFile(file) {
-  var reader = new FileReader();
-
-  reader.onload = function (e) {
-    var arrayBuffer = e.target.result;
-    audioContext.decodeAudioData(
-      arrayBuffer,
-      function (audioBuffer) {
-        audioBuffer = audioBuffer;
-      },
-      function (e) {
-        console.error("Error decoding file", e);
-      }
-    );
-  };
-
-  reader.readAsArrayBuffer(file);
+//event
+function handleFileSelect(event) {
+  event.preventDefault();
+  const file = event.target.files[0];
+  audio.loadFile(file);
 }
