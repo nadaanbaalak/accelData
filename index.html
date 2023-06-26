@@ -9,9 +9,10 @@
   <body>
     <h1 class="page-title">Audio Visualization</h1>
     <div id="drop-area">
-      <div>Drag and drop an audio file</div>
+      <img src="./upload.svg" alt="upload icon" />
+      <div>Select a file or drag and drop here</div>
       <label class="upload-file-button">
-        Browse
+        SELECT FILE
         <input
           type="file"
           id="audioFile"
@@ -25,16 +26,18 @@
     <div id="controls">
       <button id="playButton" disabled>Play</button>
       <button id="pauseButton" disabled>Pause</button>
-      <label for="volumeRange">Volume:</label>
-      <input
-        type="range"
-        id="volumeRange"
-        min="0"
-        max="1"
-        step="0.1"
-        value="1"
-        disabled
-      />
+      <div id="volume-range-container">
+        <label for="volumeRange">Volume:</label>
+        <input
+          type="range"
+          id="volumeRange"
+          min="0"
+          max="1"
+          step="0.1"
+          value="1"
+          disabled
+        />
+      </div>
     </div>
 
     <script type="module" src="/index.js"></script>

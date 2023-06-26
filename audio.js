@@ -41,7 +41,7 @@ class Audio {
     const playButton = document.getElementById("playButton");
     const pauseButton = document.getElementById("pauseButton");
     const volumeRange = document.getElementById("volumeRange");
-    playButton.disabled = false;
+    playButton.disabled = true;
     pauseButton.disabled = false;
     volumeRange.disabled = false;
   }

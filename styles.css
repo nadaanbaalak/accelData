@@ -16,17 +16,21 @@
   align-items: center;
   width: 80%;
   height: 32vh;
-  background-color: gray;
+  background-color: #fff;
   margin: 0 auto;
-  font-size: 24px;
+  font-size: 16px;
+  border: 1px dashed gray;
+  border-radius: 4px;
 }
 
 .upload-file-button {
-  font-size: 24px;
+  font-size: 20px;
   padding: 8px;
-  border: 1px solid black;
+  border: 2px solid #0d6efd;
+  color: #0d6efd;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 36px;
 }
 
 #drop-area.dragover {
@@ -34,12 +38,30 @@
 }
 
 #waveform {
-  margin: 0 auto;
+  margin: 24px auto;
   width: 80%;
   height: 300px;
   background-color: #f2f2f2;
 }
 
 #controls {
-  margin-top: 20px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#playButton,
+#pauseButton {
+  padding: 6px 12px;
+}
+
+label[for="volumeRange"] {
+  margin-left: 24px;
+}
+
+#volume-range-container {
+  display: flex;
+  align-items: center;
 }
