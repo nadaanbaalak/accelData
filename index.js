@@ -54,7 +54,7 @@ function handleFileSelectViaDrag(event) {
   }
 }
 
-//event
+//event handler for file select via input element
 function handleFileSelect(event) {
   event.preventDefault();
   const file = event.target.files[0];
