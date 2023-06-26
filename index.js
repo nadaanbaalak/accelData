@@ -2,15 +2,21 @@ import { audio } from "./audio.js";
 import { isAudioFile } from "./helpers.js";
 
 const dropArea = document.getElementById("drop-area");
+const audioInput = document.getElementById("audioFile");
+const playButton = document.getElementById("playButton");
+const pauseButton = document.getElementById("pauseButton");
+const volumeRange = document.getElementById("volumeRange");
 
 dropArea?.addEventListener("dragover", handleDragOver);
 dropArea?.addEventListener("drop", handleFileSelectViaDrag);
 dropArea.addEventListener("dragenter", handleDragEnter);
 dropArea.addEventListener("dragleave", handleDragLeave);
 
-const audioInput = document.getElementById("audioFile");
-
 audioInput.addEventListener("change", handleFileSelect);
+
+playButton.addEventListener("click", audio.playAudio.bind(audio));
+pauseButton.addEventListener("click", audio.pauseAudio.bind(audio));
+volumeRange.addEventListener("input", audio.adjustVolume.bind(audio));
 
 //prevent default behaviour of playing audio on drop
 window.addEventListener(

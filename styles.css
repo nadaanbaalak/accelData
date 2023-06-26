@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 40vh;
+  height: 32vh;
   background-color: gray;
   margin: 0 auto;
   font-size: 24px;
@@ -34,7 +34,12 @@
 }
 
 #waveform {
-  width: 100%;
-  height: 200px;
+  margin: 0 auto;
+  width: 80%;
+  height: 300px;
   background-color: #f2f2f2;
+}
+
+#controls {
+  margin-top: 20px;
 }

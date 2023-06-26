@@ -22,6 +22,21 @@
     </div>
     <div id="waveform"></div>
 
+    <div id="controls">
+      <button id="playButton" disabled>Play</button>
+      <button id="pauseButton" disabled>Pause</button>
+      <label for="volumeRange">Volume:</label>
+      <input
+        type="range"
+        id="volumeRange"
+        min="0"
+        max="1"
+        step="0.1"
+        value="1"
+        disabled
+      />
+    </div>
+
     <script type="module" src="/index.js"></script>
   </body>
 </html>
